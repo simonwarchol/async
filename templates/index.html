@@ -287,7 +287,11 @@
         pElement.textContent = "Not generated";
         qElement.textContent = "Not generated";
         cElement.textContent = "Not generated";
-        const baseUrl = window.location.href; // Get the base URL
+        let baseUrl = window.location.href; // Get the base URL
+        // Remove trailing slash if it exists
+        if (baseUrl.endsWith("/")) {
+          baseUrl = baseUrl.slice(0, -1);
+        }
 
         // set form action to baseUrl / /upload_csv
         form.action = `${baseUrl}/upload_csv`;
