@@ -20,7 +20,7 @@ span.skewed {
   font-family: "Montserrat", sans-serif;
   font-size: 10vw;
   font-weight: 900;
-  line-height: 0.8;
+  line-height: 0.9;
   transition: ease-out 0.6s;
   transform: skew(0deg, -5deg);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add this line */
