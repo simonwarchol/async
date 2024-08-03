@@ -84,7 +84,9 @@ function Async({ setCurrentState, baseUrl, setIsLoading }) {
       >
         Back
       </button>
-      <h1>HGSU Async Voting ID Generator</h1>
+      <div className="title-container">
+        <span className="async-title">HGSU Async Voting ID Generator</span>
+      </div>
       <a
         href="https://docs.google.com/document/d/1MsKRpN89cr-24vG7u7hHP00U2eYrTsrKQ_048wBVzEs/edit"
         target="_blank"
