@@ -29,7 +29,7 @@ function Homepage({ setCurrentState }) {
           </button>
         </div>
       </div>
-      <div className="line container">
+      <div className="line button-container">
         <div className="content">
           <span className="info">
             For questions or issues, reach out to simonwarchol@g.harvard.edu
