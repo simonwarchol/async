@@ -34,6 +34,11 @@ function App() {
       )}
       {currentState === "loading" && <Loading />}
       <Background />
+      <div class="footer">
+        <a href="https://simonwarchol.com">
+          <h3 class="color-gradient">© 2024 Simon Warchol</h3>
+        </a>
+      </div>
     </>
   );
 }

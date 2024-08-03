@@ -195,3 +195,38 @@ span.info {
 .wrap {
   width: 96vw;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+.color-gradient {
+  background-image: linear-gradient(
+    -225deg,
+    #66c2a5 0%,
+    #fc8d62 29%,
+    #8da0cb 67%,
+    #e78ac3 100%
+  );
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
