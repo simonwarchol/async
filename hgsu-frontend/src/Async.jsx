@@ -93,39 +93,41 @@ function Async({ setCurrentState, baseUrl, setIsLoading }) {
         Reference Document
       </a>
       <div className="results">
-        <p>
-          <strong>p:</strong> <span id="p">{p}</span>
-          <button
-            type="button"
-            className="edit-button"
-            data-target="p"
-            onClick={handleEdit}
-          >
-            Edit
-          </button>
-        </p>
-        <p>
-          <strong>q:</strong> <span id="q">{q}</span>
-          <button
-            type="button"
-            className="edit-button"
-            data-target="q"
-            onClick={handleEdit}
-          >
-            Edit
-          </button>
-        </p>
-        <p>
-          <strong>c:</strong> <span id="c">{c}</span>
-          <button
-            type="button"
-            className="edit-button"
-            data-target="c"
-            onClick={handleEdit}
-          >
-            Edit
-          </button>
-        </p>
+        <div className="inline-elements">
+          <div className="element">
+            <strong>p:</strong> <span id="p">{p}</span>
+            <button
+              type="button"
+              className="edit-button"
+              data-target="p"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+          </div>
+          <div className="element">
+            <strong>q:</strong> <span id="q">{q}</span>
+            <button
+              type="button"
+              className="edit-button"
+              data-target="q"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+          </div>
+          <div className="element">
+            <strong>c:</strong> <span id="c">{c}</span>
+            <button
+              type="button"
+              className="edit-button"
+              data-target="c"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+          </div>
+        </div>
       </div>
       <form id="prime-form">
         <button

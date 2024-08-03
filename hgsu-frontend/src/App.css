@@ -76,7 +76,7 @@ span.info {
   }
 }
 .container {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
   padding: 5px;
   text-align: center;
@@ -95,6 +95,18 @@ span.info {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.inline-elements {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 20px; /* Adjust the gap between elements as needed */
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust the gap between text and button as needed */
 }
 
 .async-button {
