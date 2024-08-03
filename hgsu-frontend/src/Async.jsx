@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import "./App.css";
 
-function Async({ setCurrentState, baseUrl }) {
-  const [p, setP] = useState("Not generated");
-  const [q, setQ] = useState("Not generated");
-  const [c, setC] = useState("Not generated");
+function Async({ setCurrentState, baseUrl, setIsLoading }) {
+  const [p, setP] = useState("null");
+  const [q, setQ] = useState("null");
+  const [c, setC] = useState("null");
   const [file, setFile] = useState(null);
   const [uploadEnabled, setUploadEnabled] = useState(false);
 
@@ -13,6 +14,7 @@ function Async({ setCurrentState, baseUrl }) {
   }, [baseUrl]);
 
   const handleGenerate = async () => {
+    setIsLoading(true);
     fetch(`${baseUrl}/generate_primes`)
       .then((response) => response.json())
       .then((data) => {
@@ -21,7 +23,8 @@ function Async({ setCurrentState, baseUrl }) {
         setC(data.c);
         checkUploadEnabled(data.p, data.q, data.c, file);
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error("Error:", error))
+      .finally(() => setIsLoading(false));
   };
 
   const handleFileChange = (event) => {
@@ -31,12 +34,7 @@ function Async({ setCurrentState, baseUrl }) {
   };
 
   const checkUploadEnabled = (p, q, c, file) => {
-    if (
-      p !== "Not generated" &&
-      q !== "Not generated" &&
-      c !== "Not generated" &&
-      file
-    ) {
+    if (p !== "null" && q !== "null" && c !== "null" && file) {
       setUploadEnabled(true);
     } else {
       setUploadEnabled(false);
@@ -52,6 +50,29 @@ function Async({ setCurrentState, baseUrl }) {
       if (targetId === "c") setC(newValue);
       checkUploadEnabled(newValue, q, c, file);
     }
+  };
+
+  const handleFileUpload = (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    const formData = new FormData(event.target);
+    fetch(event.target.action, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = "voting-list.csv";
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => console.error("Error:", error))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -116,7 +137,16 @@ function Async({ setCurrentState, baseUrl }) {
           Generate Parameters
         </button>
       </form>
-      <form id="upload-form" method="post" encType="multipart/form-data">
+      <p>
+        The CSV is available at Knack. Go to Admin &gt; Export for Organizing
+        Sheet.
+      </p>
+      <form
+        id="upload-form"
+        method="post"
+        encType="multipart/form-data"
+        onSubmit={handleFileUpload}
+      >
         <input
           type="file"
           id="csv_file"

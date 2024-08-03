@@ -18,7 +18,7 @@ function Loading() {
   34.5 -351,0 z"
         />
       </defs>
-      <g class="loading-waves">
+      <g className="loading-waves">
         <use xlinkHref="#gentle-wave" x="50" y="0" fill="#00adee" />
         <use xlinkHref="#gentle-wave" x="50" y="3" fill="#009fd7" />
         <use xlinkHref="#gentle-wave" x="50" y="6" fill="#246a99" />

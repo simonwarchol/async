@@ -7,6 +7,7 @@ import Async from "./Async";
 
 function App() {
   const [currentState, setCurrentState] = useState("homepage");
+  const [isLoading, setIsLoading] = useState(false);
   const isDevMode = import.meta.env.DEV;
   const [baseUrl, setBaseUrl] = useState("");
 
@@ -20,10 +21,17 @@ function App() {
 
   return (
     <>
+      {isLoading && <Loading />}
       {currentState === "homepage" && (
         <Homepage setCurrentState={setCurrentState} />
       )}
-      {currentState === "async" && <Async setCurrentState={setCurrentState} baseUrl={baseUrl} />}
+      {currentState === "async" && (
+        <Async
+          setCurrentState={setCurrentState}
+          baseUrl={baseUrl}
+          setIsLoading={setIsLoading}
+        />
+      )}
       {currentState === "loading" && <Loading />}
       <Background />
     </>
