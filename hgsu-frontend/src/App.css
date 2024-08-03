@@ -1,0 +1,137 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+span.skewed {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10vw;
+  font-weight: 900;
+  line-height: 0.8;
+  transition: ease-out 0.6s;
+  transform: skew(0deg, -5deg);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add this line */
+}
+.content {
+  margin: 1rem;
+}
+
+.async-button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.async-button:hover {
+  background-color: #0056b3;
+}
+
+.content p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+span.info {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.editorial {
+  z-index: 100;
+  opacity: 0.8;
+}
+.loading-waves > use {
+  animation: move-forever 12s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -3s;
+  }
+  &:nth-child(2) {
+    animation-delay: -4s;
+    animation-duration: 2s;
+  }
+  &:nth-child(3) {
+    animation-delay: -6s;
+    animation-duration: 3s;
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8); /* Set background with transparency */
+  border: 2px solid #333;
+  border-radius: 8px;
+  z-index: 1; /* Add this */
+  position: relative; /* Add this */
+}
+
+.line {
+  margin: 20px 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.async-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 20px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.async-button:hover {
+  background-color: #0056b3;
+}
+.container button {
+  margin: 5px;
+}
+
+.info {
+  font-size: 12px;
+  color: #555;
+}
+
+.back-button {
+  position: fixed; /* Change from absolute to fixed */
+  top: 20px; /* Adjust the top position */
+  left: 20px; /* Adjust the left position */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 30px; /* Increase padding to make it bigger */
+  font-size: 18px; /* Increase font size */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}

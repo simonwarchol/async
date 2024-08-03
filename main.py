@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, jsonify
+from flask import Flask, send_from_directory, request, send_file, jsonify
 from sympy import primerange
 from math import gcd
 import random
@@ -7,9 +7,11 @@ import io
 import numpy as np
 from io import StringIO, BytesIO
 import pandas as pd
+from flask_cors import CORS
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='hgsu-frontend/dist')
+CORS(app)  # Enable CORS for all routes
 
 
 # Function to generate large prime numbers and calculate n, e, and c
@@ -29,9 +31,13 @@ def generate_voter_ids(union_ids, n, e, c):
     return voter_ids
 
 
-@app.route("/")
+@app.route('/<path:path>', methods=['GET'])
+def static_proxy(path):
+    return send_from_directory(app.static_folder, path)
+
+@app.route('/', methods=['GET'])
 def index():
-    return render_template("index.html")
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route("/generate_primes", methods=["GET"])
