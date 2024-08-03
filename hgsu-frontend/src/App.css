@@ -223,6 +223,7 @@ span.info {
   -webkit-text-fill-color: transparent;
   animation: textclip 5s linear infinite;
   display: inline-block;
+  margin: 0.3rem;
 }
 
 @keyframes textclip {
